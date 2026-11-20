@@ -44,7 +44,7 @@
 /* USER CODE BEGIN PV */
 volatile uint32_t sys_ms = 0;
 volatile uint32_t last_time = 0;
-volatile uint32_t flag = 0;
+volatile uint32_t a = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -94,15 +94,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+  while(1)
   {
-		if(flag && sys_ms - last_time >= 20)
+		if(a&&sys_ms-last_time>=20)
     {
-        flag = 0;
+        a=0;
 
-        if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_RESET)
+        if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_13)==GPIO_PIN_RESET)
         {
-            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
+            HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_9);
         }
     }
     /* USER CODE END WHILE */
@@ -192,10 +192,10 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    if(GPIO_Pin == GPIO_PIN_13)
+    if(GPIO_Pin==GPIO_PIN_13)
     {
-        last_time = sys_ms;
-        flag = 1;
+        last_time=sys_ms;
+        a=1;
     }
 }
 /* USER CODE END 4 */
