@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"extra_2\startup_stm32f103xb.o"
+"extra_2\main.o"
+"extra_2\stm32f1xx_it.o"
+"extra_2\stm32f1xx_hal_msp.o"
+"extra_2\stm32f1xx_hal_gpio_ex.o"
+"extra_2\stm32f1xx_hal.o"
+"extra_2\stm32f1xx_hal_rcc.o"
+"extra_2\stm32f1xx_hal_rcc_ex.o"
+"extra_2\stm32f1xx_hal_gpio.o"
+"extra_2\stm32f1xx_hal_dma.o"
+"extra_2\stm32f1xx_hal_cortex.o"
+"extra_2\stm32f1xx_hal_pwr.o"
+"extra_2\stm32f1xx_hal_flash.o"
+"extra_2\stm32f1xx_hal_flash_ex.o"
+"extra_2\stm32f1xx_hal_exti.o"
+"extra_2\system_stm32f1xx.o"
+--strict --scatter "extra_2\extra_2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "extra_2.map" -o extra_2\extra_2.axf
