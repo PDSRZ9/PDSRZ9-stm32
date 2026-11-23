@@ -95,7 +95,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,26 +107,35 @@ int main(void)
 			flag=0;
 			if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_13)==GPIO_PIN_RESET)
 			{
-					during=last_time;
+					if(a==0)
+					{
+						during=last_time;
+						a=1;
+					}
+					
 			}
 			else
 			{
-	
-					if(last_time-during>=1000&&mode==0)
+					if(a==1)
 					{
-						mode=1;
-						HAL_TIM_Base_Start_IT(&htim2);
+						a=0;
+						if(last_time-during>=1000&&mode==0)
+						{
+							mode=1;
+							HAL_TIM_Base_Start_IT(&htim2);
 						
+						}
+						else if(last_time-during>=1000&&mode==1)
+						{
+							mode=0;
+							HAL_TIM_Base_Stop_IT(&htim2);
+						}
+						else if(mode==0)
+						{
+							HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_9);
+						}
 					}
-					else if(last_time-during>=1000&&mode==1)
-					{
-						mode=0;
-						HAL_TIM_Base_Stop_IT(&htim2);
-					}
-					else
-					{
-						HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_9);
-					}
+
 				
 				
 				
