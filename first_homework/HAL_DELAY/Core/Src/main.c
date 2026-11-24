@@ -96,9 +96,7 @@ int main(void)
   while (1)
   {
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_9,GPIO_PIN_SET);
-	HAL_Delay(250);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_9,GPIO_PIN_RESET);
-	HAL_Delay(250);	
+	
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -109,7 +107,7 @@ int main(void)
 /**
   * @brief System Clock Configuration
   * @retval None
-  */
+  */  
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};

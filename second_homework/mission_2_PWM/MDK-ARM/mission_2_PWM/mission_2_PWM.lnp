@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"mission_2_pwm\startup_stm32f103xb.o"
+"mission_2_pwm\main.o"
+"mission_2_pwm\stm32f1xx_it.o"
+"mission_2_pwm\stm32f1xx_hal_msp.o"
+"mission_2_pwm\stm32f1xx_hal_gpio_ex.o"
+"mission_2_pwm\stm32f1xx_hal_tim.o"
+"mission_2_pwm\stm32f1xx_hal_tim_ex.o"
+"mission_2_pwm\stm32f1xx_hal.o"
+"mission_2_pwm\stm32f1xx_hal_rcc.o"
+"mission_2_pwm\stm32f1xx_hal_rcc_ex.o"
+"mission_2_pwm\stm32f1xx_hal_gpio.o"
+"mission_2_pwm\stm32f1xx_hal_dma.o"
+"mission_2_pwm\stm32f1xx_hal_cortex.o"
+"mission_2_pwm\stm32f1xx_hal_pwr.o"
+"mission_2_pwm\stm32f1xx_hal_flash.o"
+"mission_2_pwm\stm32f1xx_hal_flash_ex.o"
+"mission_2_pwm\stm32f1xx_hal_exti.o"
+"mission_2_pwm\system_stm32f1xx.o"
+--strict --scatter "mission_2_PWM\mission_2_PWM.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "mission_2_PWM.map" -o mission_2_PWM\mission_2_PWM.axf
