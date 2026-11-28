@@ -123,7 +123,7 @@ int main(void)
 						mode=0;
 						HAL_TIM_Base_Stop_IT(&htim2);
 					}
-					else
+					else if(mode==0)
 					{
 						HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_9);
 					}
